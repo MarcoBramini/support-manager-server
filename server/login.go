@@ -1,7 +1,7 @@
 package server
 
 import (
-	"support-manager/model"
+	"support-manager-server/model"
 	"net/http"
 )
 

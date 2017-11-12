@@ -1,7 +1,7 @@
 package main
 
 import (
-	"support-manager/server"
+	"support-manager-server/server"
 	"github.com/gorilla/rpc"
 	"github.com/gorilla/rpc/json"
 	"github.com/gorilla/mux"
