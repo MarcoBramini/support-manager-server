@@ -1,7 +1,8 @@
 package main
 
 import (
-	"support-manager-server/server"
+	"support-manager-server/service"
+	"support-manager-server/datasource"
 	"github.com/gorilla/rpc"
 	"github.com/gorilla/rpc/json"
 	"github.com/gorilla/mux"
@@ -10,11 +11,16 @@ import (
 )
 
 func main() {
+	datasource.GetDatabase("localhost", "support-manager")
+	runServer()
+}
+
+func runServer() {
 	s := rpc.NewServer()
 	s.RegisterCodec(json.NewCodec(), "application/json")
 	s.RegisterCodec(json.NewCodec(), "application/json;charset=UTF-8")
 
-	login := new(server.Login)
+	login := new(service.Login)
 	s.RegisterService(login, "Login")
 
 	router := mux.NewRouter()

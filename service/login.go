@@ -1,4 +1,4 @@
-package server
+package service
 
 import (
 	"support-manager-server/model"
