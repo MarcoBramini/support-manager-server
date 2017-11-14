@@ -8,11 +8,25 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/handlers"
 	"net/http"
+	"support-manager-server/model"
+	"fmt"
+	"log"
+	"encoding/base64"
 )
 
 func main() {
 	datasource.GetDatabase("localhost", "support-manager")
-	datasource.GetAll()
+
+	user := model.User{Id:"test@test.it", Name:"Test", Surname:"Test", Password:"test", Organization:"TestOrg"}
+	user.Password = base64.StdEncoding.EncodeToString([]byte("test"))
+	datasource.CreateUser(user)
+
+	user,err := datasource.GetUserById("test@test.it")
+	if err!=nil {
+		log.Println(err.Error())
+	}
+	fmt.Println(user.Id)
+
 	runServer()
 }
 
