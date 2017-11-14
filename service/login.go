@@ -33,3 +33,7 @@ func (t *Login) DoLogin (r *http.Request, args *LoginRequest, result *LoginRespo
 	}
 	return nil
 }
+
+func (t *Login) GetUserList () {
+
+}

@@ -12,6 +12,7 @@ import (
 
 func main() {
 	datasource.GetDatabase("localhost", "support-manager")
+	datasource.GetAll()
 	runServer()
 }
 
