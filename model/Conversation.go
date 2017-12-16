@@ -1,6 +1,7 @@
 package model
 
 type Conversation struct {
-	Messages []Message
-	Users UserList
+	Id string `bson:"_id"`
+	Messages []Message `bson:"messages"`
+	Users UserList `bson:"users"`
 }

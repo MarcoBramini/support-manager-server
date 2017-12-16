@@ -5,5 +5,4 @@ type Message struct {
 	Owner User `bson:"owner"`
 	Payload string `bson:"payload"`
 	Time string `bson:"time"`
-	ConversationId string `bson:"conversationId"`
 }
